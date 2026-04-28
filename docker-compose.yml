@@ -1,0 +1,38 @@
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: clinical-mysql
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: pfc
+      MYSQL_USER: clinical_user
+      MYSQL_PASSWORD: clinical_pass
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./docker/mysql/init:/docker-entrypoint-initdb.d
+    networks:
+      - clinical_network
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: clinical-phpmyadmin
+    restart: unless-stopped
+    depends_on:
+      - mysql
+    ports:
+      - "8080:80"
+    environment:
+      PMA_HOST: mysql
+      MYSQL_ROOT_PASSWORD: rootpassword
+    networks:
+      - clinical_network
+
+volumes:
+  mysql_data:
+
+networks:
+  clinical_network:
+    driver: bridge
