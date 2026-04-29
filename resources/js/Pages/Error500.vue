@@ -1,22 +1,10 @@
-<script setup>
-import Layout from './Layout.vue'
-import { Head } from '@inertiajs/vue3'
-
-defineOptions({ layout: Layout })
-</script>
-
 <template>
-  <Head title="500 - Server Error" />
-  <div class="min-h-[60vh] flex items-center justify-center">
+  <div class="min-h-screen bg-[#f5f5f7] flex items-center justify-center p-6">
     <div class="text-center">
-      <h1 class="text-9xl font-bold text-gray-300">500</h1>
-      <h2 class="text-3xl font-semibold text-gray-700 mt-4">Server Error</h2>
-      <p class="text-gray-500 mt-2">Something went wrong on our end.</p>
-      <a
-        href="/"
-        class="inline-block mt-6 px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition"
-      >
-        Go Back Home
+      <h1 class="text-6xl font-semibold text-[#1d1d1f] mb-4">500</h1>
+      <p class="text-[17px] text-[#86868b] mb-8">Something went wrong</p>
+      <a href="/" class="inline-flex items-center gap-2 bg-[#0071e3] text-white px-5 py-2.5 rounded-lg text-[13px] font-medium hover:bg-[#0077ed] transition-colors">
+        Go Home
       </a>
     </div>
   </div>

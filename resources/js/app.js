@@ -1,13 +1,20 @@
 import { createApp, h } from 'vue'
 import { createInertiaApp } from '@inertiajs/vue3'
+import Layout from './Pages/Layout.vue'
 
 createInertiaApp({
   resolve: name => {
     const pages = import.meta.glob('./Pages/**/*.vue', { eager: true })
-    return pages[`./Pages/${name}.vue`]
+    const page = pages[`./Pages/${name}.vue`]
+
+    if (!page.default.layout && !name.startsWith('Auth/')) {
+      page.default.layout = Layout
+    }
+
+    return page.default
   },
   setup({ el, App, props, plugin }) {
-    return createApp({ render: () => h(App, props) })
+    createApp({ render: () => h(App, props) })
       .use(plugin)
       .mount(el)
   },

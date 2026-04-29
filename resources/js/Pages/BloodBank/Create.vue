@@ -1,64 +1,66 @@
 <template>
-  <Layout>
-    <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-      <div class="p-6 bg-white border-b border-gray-200">
-        <h1 class="text-2xl font-bold mb-4">Ajouter un Donneur</h1>
-        
-        <form @submit.prevent="submit">
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div>
-              <label class="block text-sm font-medium text-gray-700">Nom</label>
-              <input v-model="form.nom" type="text" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm" required>
-            </div>
-            
-            <div>
-              <label class="block text-sm font-medium text-gray-700">Prénom</label>
-              <input v-model="form.prenom" type="text" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm" required>
-            </div>
-            
-            <div>
-              <label class="block text-sm font-medium text-gray-700">Téléphone</label>
-              <input v-model="form.numero" type="number" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm" required>
-            </div>
-            
-            <div>
-              <label class="block text-sm font-medium text-gray-700">Groupe Sanguin</label>
-              <select v-model="form.gs" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm" required>
-                <option value="">Sélectionner</option>
-                <option value="A+">A+</option>
-                <option value="A-">A-</option>
-                <option value="B+">B+</option>
-                <option value="B-">B-</option>
-                <option value="AB+">AB+</option>
-                <option value="AB-">AB-</option>
-                <option value="O+">O+</option>
-                <option value="O-">O-</option>
-              </select>
-            </div>
-          </div>
-          
-          <div class="mt-6">
-            <button type="submit" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
-              Enregistrer
-            </button>
-            <a href="/bloodbank" class="ml-4 text-gray-600 hover:text-gray-900">Annuler</a>
-          </div>
-        </form>
+  <div>
+    <div class="flex justify-between items-center mb-8">
+      <div>
+        <h1 class="text-2xl font-semibold text-[#1d1d1f]">New Donor</h1>
+        <p class="text-[13px] text-[#86868b] mt-1">Register a new blood donor</p>
       </div>
     </div>
-  </Layout>
+
+    <div class="bg-white rounded-2xl border border-[#e5e5e7] p-8">
+      <form @submit.prevent="submit">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div>
+            <label class="block text-[13px] font-medium text-[#1d1d1f] mb-2">Last Name</label>
+            <input v-model="form.nom" type="text" class="w-full px-4 py-2.5 bg-[#f5f5f7] border-0 rounded-lg text-[13px] text-[#1d1d1f] outline-none focus:ring-2 focus:ring-[#0071e3]/20" required>
+          </div>
+
+          <div>
+            <label class="block text-[13px] font-medium text-[#1d1d1f] mb-2">First Name</label>
+            <input v-model="form.prenom" type="text" class="w-full px-4 py-2.5 bg-[#f5f5f7] border-0 rounded-lg text-[13px] text-[#1d1d1f] outline-none focus:ring-2 focus:ring-[#0071e3]/20" required>
+          </div>
+
+          <div>
+            <label class="block text-[13px] font-medium text-[#1d1d1f] mb-2">Blood Type</label>
+            <select v-model="form.gs" class="w-full px-4 py-2.5 bg-[#f5f5f7] border-0 rounded-lg text-[13px] text-[#1d1d1f] outline-none focus:ring-2 focus:ring-[#0071e3]/20" required>
+              <option value="">Select</option>
+              <option value="A+">A+</option>
+              <option value="A-">A-</option>
+              <option value="B+">B+</option>
+              <option value="B-">B-</option>
+              <option value="AB+">AB+</option>
+              <option value="AB-">AB-</option>
+              <option value="O+">O+</option>
+              <option value="O-">O-</option>
+            </select>
+          </div>
+
+          <div>
+            <label class="block text-[13px] font-medium text-[#1d1d1f] mb-2">Phone</label>
+            <input v-model="form.numero" type="text" class="w-full px-4 py-2.5 bg-[#f5f5f7] border-0 rounded-lg text-[13px] text-[#1d1d1f] outline-none focus:ring-2 focus:ring-[#0071e3]/20" required>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-3 mt-8 pt-6 border-t border-[#e5e5e7]">
+          <button type="submit" class="bg-[#ff2d55] text-white px-5 py-2.5 rounded-lg text-[13px] font-medium hover:bg-[#ff3b5f] transition-colors">
+            Save
+          </button>
+          <a href="/donneurs" class="text-[13px] text-[#86868b] hover:text-[#1d1d1f] transition-colors font-medium">Cancel</a>
+        </div>
+      </form>
+    </div>
+  </div>
 </template>
 
 <script setup>
-import Layout from '../Layout.vue'
 import { reactive } from 'vue'
 import { router } from '@inertiajs/vue3'
 
 const form = reactive({
   nom: '',
   prenom: '',
-  numero: '',
-  gs: ''
+  gs: '',
+  numero: ''
 })
 
 const submit = () => {

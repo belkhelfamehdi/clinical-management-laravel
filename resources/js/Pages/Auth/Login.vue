@@ -1,58 +1,59 @@
 <template>
-  <div class="min-h-screen flex items-center justify-center bg-gray-50">
-    <div class="bg-white p-8 rounded-2xl shadow-lg w-full max-w-md">
-      <div class="text-center mb-8">
-        <div class="w-20 h-20 bg-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
-          <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
-          </svg>
-        </div>
-        <h1 class="text-3xl font-bold text-gray-900">Connexion</h1>
-        <p class="mt-2 text-gray-600">Accédez à votre espace médical</p>
+  <div class="min-h-screen bg-[#f5f5f7] flex items-center justify-center p-6">
+    <div class="w-full max-w-sm">
+      <!-- Logo -->
+      <div class="text-center mb-10">
+        <img src="/images/logo.png" class="w-32 h-32 object-contain mx-auto mb-5" alt="Logo">
+        <h1 class="text-2xl font-semibold text-[#1d1d1f]">Sign In</h1>
+        <p class="text-[13px] text-[#86868b] mt-2">Access your workspace</p>
       </div>
-     
-      <form @submit.prevent="submit">
-        <div class="mb-4">
-          <label class="block text-sm font-medium text-gray-700 mb-1">Email</label>
-          <input v-model="form.email" type="email" class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition" placeholder="votre@email.com" required>
-        </div>
-        
-        <div class="mb-6">
-          <label class="block text-sm font-medium text-gray-700 mb-1">Mot de passe</label>
-          <input v-model="form.password" type="password" class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition" placeholder="••••••••" required>
-        </div>
-        
-        <div v-if="errors.email" class="mb-4 p-3 bg-red-50 text-red-600 text-sm rounded-lg">
-          {{ errors.email }}
-        </div>
-        
-        <button type="submit" class="w-full bg-blue-600 text-white py-3 px-4 rounded-xl hover:bg-blue-700 font-medium transition">
-          Se connecter
-        </button>
-      </form>
-     
-      <p class="mt-6 text-center text-sm text-gray-600">
-        Vous n'avez pas de compte? 
-        <a href="/register" class="text-blue-600 hover:underline font-medium">S'inscrire</a>
+
+      <!-- Form -->
+      <div class="bg-white rounded-2xl border border-[#e5e5e7] p-6">
+        <form @submit.prevent="submit">
+          <div class="space-y-4">
+            <div>
+              <label class="block text-[13px] font-medium text-[#1d1d1f] mb-2">Email</label>
+              <input v-model="form.email" type="email" class="w-full px-4 py-2.5 bg-[#f5f5f7] border-0 rounded-lg text-[13px] text-[#1d1d1f] placeholder-[#86868b] outline-none focus:ring-2 focus:ring-[#0071e3]/20" placeholder="your@email.com" required>
+            </div>
+
+            <div>
+              <label class="block text-[13px] font-medium text-[#1d1d1f] mb-2">Password</label>
+              <input v-model="form.password" type="password" class="w-full px-4 py-2.5 bg-[#f5f5f7] border-0 rounded-lg text-[13px] text-[#1d1d1f] placeholder-[#86868b] outline-none focus:ring-2 focus:ring-[#0071e3]/20" placeholder="••••••••" required>
+            </div>
+
+            <div v-if="errors.email" class="p-3 bg-[#ff3b30]/10 text-[#ff3b30] text-[13px] rounded-lg">
+              {{ errors.email }}
+            </div>
+
+            <button type="submit" class="w-full bg-[#0071e3] text-white py-2.5 rounded-lg text-[13px] font-medium hover:bg-[#0077ed] transition-colors">
+              Sign In
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <p class="mt-6 text-center text-[13px] text-[#86868b]">
+        Don't have an account?
+        <a href="/register" class="text-[#0071e3] hover:underline font-medium">Create one</a>
       </p>
     </div>
   </div>
 </template>
 
 <script setup>
-import { reactive } from 'vue'
-import { router } from '@inertiajs/vue3'
+import { useForm } from '@inertiajs/vue3'
 
 defineProps({
   errors: { type: Object, default: () => ({}) }
 })
 
-const form = reactive({
+const form = useForm({
   email: '',
   password: ''
 })
 
 const submit = () => {
-  router.post('/login', form)
+  form.post('/login')
 }
 </script>

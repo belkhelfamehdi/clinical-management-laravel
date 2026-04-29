@@ -27,7 +27,7 @@ Route::redirect('salaries', 'salaires');
 Route::redirect('leaves', 'conges');
 Route::redirect('bloodbank', 'donneurs');
 Route::redirect('appointments', 'rendez-vous');
-Route::resource('appointments', ConsultationController::class)->except(['show', 'edit', 'update'])->middleware('auth');
+Route::resource('rendez-vous', ConsultationController::class)->except(['show', 'edit', 'update'])->middleware('auth');
 
 // Auth routes
 Route::get('/login', [AuthController::class, 'showLogin'])->name('login')->middleware('guest');

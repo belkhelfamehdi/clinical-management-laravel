@@ -4,7 +4,6 @@ namespace App\Http\Middleware;
 
 use Illuminate\Http\Request;
 use Inertia\Middleware;
-use Tightenco\Ziggy\BladeRouteGenerator;
 
 class HandleInertiaRequests extends Middleware
 {
@@ -12,7 +11,7 @@ class HandleInertiaRequests extends Middleware
 
     public function version(Request $request): ?string
     {
-        return parent::version($request);
+        return md5_file(public_path('build/manifest.json'));
     }
 
     public function share(Request $request): array
