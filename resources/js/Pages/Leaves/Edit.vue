@@ -2,8 +2,8 @@
   <div>
     <div class="flex justify-between items-center mb-8">
       <div>
-        <h1 class="text-2xl font-semibold text-[#1d1d1f]">New Leave</h1>
-        <p class="text-[13px] text-[#86868b] mt-1">Submit a leave request</p>
+        <h1 class="text-2xl font-semibold text-[#1d1d1f]">Edit Leave</h1>
+        <p class="text-[13px] text-[#86868b] mt-1">Update leave request</p>
       </div>
     </div>
 
@@ -33,7 +33,7 @@
 
         <div class="flex items-center gap-3 mt-8 pt-6 border-t border-[#e5e5e7]">
           <button type="submit" class="bg-[#0071e3] text-white px-5 py-2.5 rounded-lg text-[13px] font-medium hover:bg-[#0077ed] transition-colors">
-            Save
+            Update
           </button>
           <a href="/conges" class="text-[13px] text-[#86868b] hover:text-[#1d1d1f] transition-colors font-medium">Cancel</a>
         </div>
@@ -47,16 +47,17 @@ import { reactive } from 'vue'
 import { router } from '@inertiajs/vue3'
 
 const props = defineProps({
+  conge: Object,
   employees: Array
 })
 
 const form = reactive({
-  id_em: '',
-  dated: '',
-  datef: ''
+  id_em: props.conge.id_em,
+  dated: props.conge.dated,
+  datef: props.conge.datef
 })
 
 const submit = () => {
-  router.post('/conges', form)
+  router.put(`/conges/${props.conge.num_cn}`, form)
 }
 </script>

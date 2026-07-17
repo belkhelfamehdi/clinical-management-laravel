@@ -25,7 +25,6 @@ class ConsultationController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'num' => 'required|integer|unique:consultation,num',
             'date' => 'required|date',
             'id_p' => 'required|exists:patient,id',
             'id_e' => 'required|exists:employe,id',

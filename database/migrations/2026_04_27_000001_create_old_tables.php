@@ -76,6 +76,7 @@ return new class extends Migration
             $table->increments('num');
             $table->date('date');
             $table->integer('id_p');
+            $table->integer('id_e')->nullable();
         });
 
         Schema::create('ordonnance', function (Blueprint $table) {

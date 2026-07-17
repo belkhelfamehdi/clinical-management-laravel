@@ -8,11 +8,11 @@ class Consultation extends Model
 {
     protected $table = 'consultation';
     protected $primaryKey = 'num';
-    public $incrementing = false;
+    public $incrementing = true;
     protected $keyType = 'int';
     public $timestamps = false;
 
-    protected $fillable = ['num', 'date', 'id_p'];
+    protected $fillable = ['date', 'id_p', 'id_e'];
 
     public function patient()
     {

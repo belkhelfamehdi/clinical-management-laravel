@@ -27,11 +27,18 @@
               <p class="text-[11px] text-[#86868b]">{{ conge.employee?.fonction || 'N/A' }}</p>
             </div>
           </div>
-          <button @click="deleteConge(conge.num_cn)" class="p-1.5 text-[#ff3b30] hover:bg-[#ff3b30]/10 rounded-lg transition-colors opacity-0 group-hover:opacity-100">
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.572a2 2 0 01-1.995 1.924H5.864a2 2 0 01-1.995-1.924L3 7m3 4h6m-3 0a2 2 0 01-2-2h-2a2 2 0 012-2m3 0V3a2 2 0 00-2-2 2 2 0 00-2 2v1"/>
-            </svg>
-          </button>
+          <div class="flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
+            <a :href="`/conges/${conge.num_cn}/edit`" class="p-1.5 text-[#0071e3] hover:bg-[#0071e3]/10 rounded-lg transition-colors">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/>
+              </svg>
+            </a>
+            <button @click="deleteConge(conge.num_cn)" class="p-1.5 text-[#ff3b30] hover:bg-[#ff3b30]/10 rounded-lg transition-colors">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.572a2 2 0 01-1.995 1.924H5.864a2 2 0 01-1.995-1.924L3 7m3 4h6m-3 0a2 2 0 01-2-2h-2a2 2 0 012-2m3 0V3a2 2 0 00-2-2 2 2 0 00-2 2v1"/>
+              </svg>
+            </button>
+          </div>
         </div>
         <div class="mt-4 pt-3 border-t border-[#e5e5e7] grid grid-cols-3 gap-4 text-[12px]">
           <div class="text-[#86868b]">

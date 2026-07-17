@@ -90,7 +90,10 @@ CREATE TABLE IF NOT EXISTS `consultation` (
   `num` int(11) NOT NULL AUTO_INCREMENT,
   `date` date NOT NULL,
   `id_p` int(11) NOT NULL,
-  PRIMARY KEY (`num`)
+  `id_e` int(11) DEFAULT NULL,
+  PRIMARY KEY (`num`),
+  KEY `id_p` (`id_p`),
+  KEY `id_e` (`id_e`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 CREATE TABLE IF NOT EXISTS `ordonnance` (

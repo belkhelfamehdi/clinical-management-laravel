@@ -23,7 +23,6 @@ class CongeController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'num_cn' => 'required|integer|unique:cong,num_cn',
             'id_em' => 'required|exists:employe,id',
             'dated' => 'required|date',
             'datef' => 'required|date|after:dated',
