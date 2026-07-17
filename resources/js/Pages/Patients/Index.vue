@@ -1,6 +1,5 @@
 <template>
   <div>
-    <!-- Header -->
     <div class="flex justify-between items-center mb-8">
       <div>
         <h1 class="text-2xl font-semibold text-[#1d1d1f]">Patients</h1>
@@ -14,12 +13,10 @@
       </a>
     </div>
 
-    <!-- Search -->
     <div class="bg-white rounded-2xl border border-[#e5e5e7] p-4 mb-6">
       <input type="text" v-model="search" placeholder="Search patients..." class="w-full px-4 py-2.5 bg-[#f5f5f7] border-0 rounded-lg text-[13px] text-[#1d1d1f] placeholder-[#86868b] outline-none focus:ring-2 focus:ring-[#0071e3]/20">
     </div>
 
-    <!-- Patients Table -->
     <div class="bg-white rounded-2xl border border-[#e5e5e7] overflow-hidden">
       <table class="min-w-full divide-y divide-[#e5e5e7]">
         <thead class="bg-[#fafafa]">

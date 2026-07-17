@@ -1,12 +1,10 @@
 <template>
   <div>
-    <!-- Header -->
     <div class="mb-8">
       <h1 class="text-2xl font-semibold text-[#1d1d1f]">Dashboard</h1>
       <p class="text-[13px] text-[#86868b] mt-1">{{ $page.props.auth?.user?.name || 'Welcome back' }}</p>
     </div>
 
-    <!-- Stats Grid -->
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
       <div v-for="(stat, index) in statCards" :key="index" class="bg-white rounded-2xl p-5 border border-[#e5e5e7] hover:shadow-sm transition-shadow">
         <div class="flex items-center justify-between mb-3">
@@ -21,9 +19,7 @@
       </div>
     </div>
 
-    <!-- Main Content Grid -->
     <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
-      <!-- Quick Actions -->
       <div class="bg-white rounded-2xl border border-[#e5e5e7] p-6">
         <h3 class="text-[15px] font-semibold text-[#1d1d1f] mb-5">Quick Actions</h3>
         <div class="space-y-2">
@@ -44,7 +40,6 @@
         </div>
       </div>
 
-      <!-- Latest Patients -->
       <div class="bg-white rounded-2xl border border-[#e5e5e7] p-6">
         <div class="flex items-center justify-between mb-5">
           <h3 class="text-[15px] font-semibold text-[#1d1d1f]">Latest Patients</h3>
@@ -66,7 +61,6 @@
         </div>
       </div>
 
-      <!-- Latest Employees -->
       <div class="bg-white rounded-2xl border border-[#e5e5e7] p-6">
         <div class="flex items-center justify-between mb-5">
           <h3 class="text-[15px] font-semibold text-[#1d1d1f]">Latest Employees</h3>

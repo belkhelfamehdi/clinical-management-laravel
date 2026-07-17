@@ -1,8 +1,6 @@
 <template>
   <div class="min-h-screen bg-[#f5f5f7] flex">
-    <!-- Sidebar -->
     <aside class="w-[260px] h-screen bg-white/80 backdrop-blur-xl border-r border-[#e5e5e7] flex flex-col flex-shrink-0 sticky top-0">
-      <!-- Logo -->
       <div class="h-[72px] flex items-center px-6 border-b border-[#e5e5e7]">
         <div class="flex items-center gap-3">
           <img src="/images/logo.png" class="w-14 h-14 object-contain" alt="Logo">
@@ -10,7 +8,6 @@
         </div>
       </div>
 
-      <!-- Navigation -->
       <nav class="flex-1 overflow-y-auto py-5 px-3">
         <div class="space-y-1">
           <a href="/" class="flex items-center gap-3 px-3 py-2.5 text-[13px] font-medium rounded-lg transition-all duration-200" :class="isActive('/') ? 'bg-[#0071e3]/10 text-[#0071e3]' : 'text-[#6e6e73] hover:bg-[#f5f5f7] hover:text-[#1d1d1f]'">
@@ -85,7 +82,6 @@
         </div>
       </nav>
 
-      <!-- User Menu -->
       <div class="border-t border-[#e5e5e7] p-4 mt-auto">
         <div class="flex items-center gap-3 mb-3">
           <div class="w-9 h-9 rounded-full bg-[#0071e3] flex items-center justify-center text-white text-sm font-medium flex-shrink-0">
@@ -107,7 +103,6 @@
       </div>
     </aside>
 
-    <!-- Main Content -->
     <main class="flex-1 overflow-y-auto">
       <div class="max-w-[1200px] mx-auto py-8 px-8">
         <slot />

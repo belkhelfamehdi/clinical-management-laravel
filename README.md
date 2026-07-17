@@ -1,118 +1,56 @@
-# Clinical Management System
+# Clinical Management
 
-A modernized clinical management system built with **Laravel 13 + Vue 3 + Inertia.js** with Docker support.
+A small clinic management app for handling patients, staff, pharmacy stock, rooms,
+the blood bank, invoices and leave requests. Backend is Laravel, frontend is Vue 3
+wired through Inertia.
 
-## Features
+## Stack
 
-- **Patient Management**: Add, edit, delete patients
-- **Employee Management**: Manage doctors, nurses, and staff
-- **Pharmacy**: Manage medications and stock
-- **Room Management**: Track room assignments
-- **Blood Bank**: Manage blood donations and stock
-- **Invoicing**: Generate and track invoices
-- **Leave Management**: Track employee leaves
+- Laravel (PHP 8.3)
+- Vue 3 + Inertia
+- Tailwind CSS
+- MySQL
 
-## Tech Stack
+## Running it
 
-- **Backend**: Laravel 13.6 (PHP 8.2+)
-- **Frontend**: Vue 3 with Inertia.js
-- **Styling**: Tailwind CSS
-- **Database**: MySQL 8.0 (via Docker)
-- **Admin Panel**: phpMyAdmin (via Docker)
+MySQL and phpMyAdmin run in Docker:
 
-## Quick Start with Docker (Recommended)
-
-1. **Start all services**:
-   ```bash
-   cd /home/mehdibelkhelfa/Dev/Projects/clinical-management
-   docker-compose up -d
-   ```
-
-2. **Start Laravel & Vite** (in separate terminals or use `./start.sh`):
-   ```bash
-   # Terminal 1
-   php artisan serve --port=8000
-
-   # Terminal 2
-   npm run dev
-   ```
-
-3. **Access the app**:
-   - Laravel App: http://localhost:8000
-   - Vite Dev Server: http://localhost:5173
-   - phpMyAdmin: http://localhost:8080
-     - Username: `clinical_user`
-     - Password: `clinical_pass`
-     - Root Password: `rootpassword`
-
-## Manual Setup (Without Docker)
-
-1. **Start MySQL** (using XAMPP or manual install)
-
-2. **Configure `.env`**:
-   ```env
-   DB_CONNECTION=mysql
-   DB_HOST=127.0.0.1
-   DB_PORT=3306
-   DB_DATABASE=pfc
-   DB_USERNAME=root
-   DB_PASSWORD=
-   ```
-
-3. **Run migrations** (optional - uses existing `pfc` database):
-   ```bash
-   php artisan migrate
-   ```
-
-4. **Start servers**:
-   ```bash
-   php artisan serve --port=8000
-   npm run dev
-   ```
-
-## Project Structure
-
-```
-clinical-management/
-├── app/
-│   ├── Models/          # Eloquent models (Patient, Employee, etc.)
-│   ├── Http/Controllers/ # Controllers
-│   └── Middleware/
-├── resources/
-│   ├── js/
-│   │   ├── Pages/      # Vue components
-│   │   └── app.js     # Vue entry point
-│   └── views/
-├── routes/
-│   └── web.php        # Laravel routes
-├── database/
-│   ├── migrations/
-│   └── mysql/         # Docker init scripts
-├── docker-compose.yml  # Docker configuration
-└── start.sh           # Quick start script
+```bash
+docker compose up -d
 ```
 
-## Migration from Old System
+Then start the app and the Vite dev server (or just run `./start.sh`):
 
-The old procedural PHP system is preserved in `clinical-management-old/`. The new system:
-- Uses the same database structure (`patient`, `employe`, etc.)
-- Keeps all existing data intact
-- Adds modern security (CSRF, SQL injection protection)
-- Provides a reactive Vue.js frontend
+```bash
+php artisan serve --port=8000
+npm run dev
+```
 
-## Development
+- App: http://localhost:8000
+- phpMyAdmin: http://localhost:8080
 
-- **Laravel Framework**: 13.6.0
-- **Vue.js**: 3.5.33
-- **Inertia.js**: 3.0.3
-- **Tailwind CSS**: 4.2.4
+The database name and credentials are defined in `docker-compose.yml` (db `pfc`).
 
-## Troubleshooting
+## Without Docker
 
-- **MySQL connection issues**: Check Docker containers with `docker ps`
-- **Vite errors**: Run `npm install` to ensure all packages are installed
-- **Laravel errors**: Run `php artisan config:clear && php artisan route:clear`
+Point `.env` at a local MySQL instance and run the migrations:
 
-## License
+```
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_DATABASE=pfc
+DB_USERNAME=root
+DB_PASSWORD=
+```
 
-MIT
+```bash
+php artisan migrate
+php artisan serve --port=8000
+npm run dev
+```
+
+If config or route changes don't show up, clear the caches:
+
+```bash
+php artisan config:clear && php artisan route:clear
+```

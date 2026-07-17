@@ -1,6 +1,5 @@
 <template>
   <div>
-    <!-- Header -->
     <div class="flex justify-between items-center mb-8">
       <div>
         <h1 class="text-2xl font-semibold text-[#1d1d1f]">Blood Bank</h1>
@@ -14,7 +13,6 @@
       </a>
     </div>
 
-    <!-- Stats -->
     <div class="grid grid-cols-2 md:grid-cols-4 gap-3 mb-8">
       <div v-for="stock in props.stocks" :key="stock.gs" class="bg-white rounded-2xl border border-[#e5e5e7] p-5 text-center">
         <div class="text-2xl font-semibold" :class="stock.quantite > 20 ? 'text-[#34c759]' : stock.quantite > 10 ? 'text-[#ff9500]' : 'text-[#ff3b30]'">
@@ -24,7 +22,6 @@
       </div>
     </div>
 
-    <!-- Donors Table -->
     <div class="bg-white rounded-2xl border border-[#e5e5e7] overflow-hidden">
       <table class="min-w-full divide-y divide-[#e5e5e7]">
         <thead class="bg-[#fafafa]">

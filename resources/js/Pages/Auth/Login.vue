@@ -1,14 +1,12 @@
 <template>
   <div class="min-h-screen bg-[#f5f5f7] flex items-center justify-center p-6">
     <div class="w-full max-w-sm">
-      <!-- Logo -->
       <div class="text-center mb-10">
         <img src="/images/logo.png" class="w-32 h-32 object-contain mx-auto mb-5" alt="Logo">
         <h1 class="text-2xl font-semibold text-[#1d1d1f]">Sign In</h1>
         <p class="text-[13px] text-[#86868b] mt-2">Access your workspace</p>
       </div>
 
-      <!-- Form -->
       <div class="bg-white rounded-2xl border border-[#e5e5e7] p-6">
         <form @submit.prevent="submit">
           <div class="space-y-4">

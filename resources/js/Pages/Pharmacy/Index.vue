@@ -1,6 +1,5 @@
 <template>
   <div>
-    <!-- Header -->
     <div class="flex justify-between items-center mb-8">
       <div>
         <h1 class="text-2xl font-semibold text-[#1d1d1f]">Pharmacy</h1>
@@ -14,12 +13,10 @@
       </a>
     </div>
 
-    <!-- Search -->
     <div class="bg-white rounded-2xl border border-[#e5e5e7] p-4 mb-6">
       <input type="text" v-model="search" placeholder="Search medications..." class="w-full px-4 py-2.5 bg-[#f5f5f7] border-0 rounded-lg text-[13px] text-[#1d1d1f] placeholder-[#86868b] outline-none focus:ring-2 focus:ring-[#0071e3]/20">
     </div>
 
-    <!-- Grid View -->
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
       <div v-for="med in filteredMedicaments" :key="med.numM" class="bg-white rounded-2xl border border-[#e5e5e7] p-5 hover:shadow-sm transition-shadow group">
         <div class="flex items-start justify-between mb-4">

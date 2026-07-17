@@ -1,6 +1,5 @@
 <template>
   <div>
-    <!-- Header -->
     <div class="flex justify-between items-center mb-8">
       <div>
         <h1 class="text-2xl font-semibold text-[#1d1d1f]">Invoices</h1>
@@ -14,7 +13,6 @@
       </a>
     </div>
 
-    <!-- Invoices Table -->
     <div class="bg-white rounded-2xl border border-[#e5e5e7] overflow-hidden">
       <table class="min-w-full divide-y divide-[#e5e5e7]">
         <thead class="bg-[#fafafa]">

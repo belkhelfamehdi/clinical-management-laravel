@@ -1,6 +1,5 @@
 <template>
   <div>
-    <!-- Header -->
     <div class="flex justify-between items-center mb-8">
       <div>
         <h1 class="text-2xl font-semibold text-[#1d1d1f]">New Patient</h1>
@@ -8,7 +7,6 @@
       </div>
     </div>
 
-    <!-- Form -->
     <div class="bg-white rounded-2xl border border-[#e5e5e7] p-8">
       <form @submit.prevent="submit">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">

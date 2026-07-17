@@ -1,6 +1,5 @@
 <template>
   <div>
-    <!-- Header -->
     <div class="flex justify-between items-center mb-8">
       <div>
         <h1 class="text-2xl font-semibold text-[#1d1d1f]">Leave</h1>
@@ -14,7 +13,6 @@
       </a>
     </div>
 
-    <!-- Leaves List -->
     <div class="space-y-3">
       <div v-for="conge in sortedConges" :key="conge.num_cn" class="bg-white rounded-2xl border border-[#e5e5e7] p-5 hover:shadow-sm transition-shadow group">
         <div class="flex items-start justify-between">
